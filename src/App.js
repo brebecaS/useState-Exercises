@@ -13,7 +13,7 @@ import Nav from "./NavBar";
 function App() {
   return (
     <div>
-      <ImagesCarousel />
+      <Counter />
     </div>
   );
 }

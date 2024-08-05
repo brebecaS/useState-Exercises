@@ -7,13 +7,13 @@ import CharacterCounter from "./teme/tema4/CharacterCounter";
 import TodoList from "./teme/tema5/ToDoListRezolvare";
 import SearchFilter from "./teme/tema6/SearchFilterRezolvare";
 import ColorSwitcher from "./teme/tema7/ColorSwitcher";
+import ImagesCarousel from "./teme/tema1/ExercitiuImageCarousel";
 import Nav from "./NavBar";
 
 function App() {
   return (
     <div>
-      <Nav />
-      <TodoList />
+      <ImagesCarousel />
     </div>
   );
 }

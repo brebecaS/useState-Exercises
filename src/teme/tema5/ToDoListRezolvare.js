@@ -5,12 +5,23 @@ function TodoList() {
   const [toDos, setToDos] = useState([]);
   const [newToDo, setNewToDo] = useState("");
 
-  const liList = toDos.map((item) => (
-    <div key={item}>
-      <li>{item}</li>
-      <button onClick={() => {}}>Remove</button>
-    </div>
-  ));
+  const liList = toDos.map((item, index) => {
+    return (
+      <div key={index}>
+        <li>{item}</li>
+        <button
+          onClick={() => {
+            setToDos((prevToDos) => {
+              const newList = prevToDos.filter((element) => element !== item);
+              return newList;
+            });
+          }}
+        >
+          Remove
+        </button>
+      </div>
+    );
+  });
 
   return (
     <div className="exercise-container">

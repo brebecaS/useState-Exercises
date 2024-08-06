@@ -1,7 +1,7 @@
 import React from "react";
 
 const items = [
-  "In ce an a inceput primul razbui modial ?",
+  "In ce an a inceput primul razboi modial ?",
   "In ce an a avut loc marea unire ?",
   "Cine e fost domnitorul cu cea mai lunga domnie ?",
   "Intre ce ani a domnit stefan cel mare ?",
@@ -10,10 +10,20 @@ const items = [
 ];
 
 function SearchFilter() {
+  const searchString = "razboi";
+
+  const listElements = items
+    .filter((element) => element.includes(searchString))
+    .map((item) => (
+      <div key={item}>
+        <li>{item}</li>
+      </div>
+    ));
+
   return (
     <div>
       <input type="text" />
-      <ul>{/* Render the filtered list of items here */}</ul>
+      <ul>{listElements}</ul>
     </div>
   );
 }

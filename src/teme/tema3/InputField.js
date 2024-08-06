@@ -6,7 +6,9 @@ function InputField() {
 
   // Cautati pe google cum se foloseste onChange pe un input de tip text pentru a afla valoarea din input
   // Foloseste in functa onChange functia de setare a state ului pentru a seta valoarea lui text cu valoarea din input
-  const onChange = () => {};
+  const onChange = (event) => {
+    const userInputValue = event.target.value;
+  };
 
   return (
     <div>

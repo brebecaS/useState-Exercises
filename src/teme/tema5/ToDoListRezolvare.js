@@ -9,7 +9,11 @@ function TodoList() {
     <div className="exercise-container">
       <div>
         <input type="text" onChange={(e) => setNewToDo(e.target.value)} />
-        <button onClick={() => setToDos([...toDos, newToDo])}>Add Todo</button>
+        <button
+          onClick={() => setToDos((prevToDos) => [...prevToDos, newToDo])}
+        >
+          Add Todo
+        </button>
       </div>
       <ul>
         {toDos.map((item) => (

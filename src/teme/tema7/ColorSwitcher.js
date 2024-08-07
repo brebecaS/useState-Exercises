@@ -2,12 +2,20 @@ import React from "react";
 import switcherStyles from "./ColorSwitcher.module.css";
 
 function ColorSwitcher() {
-  let bgColor = "red";
+  let bgColor = "blue";
 
   return (
     <div className={switcherStyles.container}>
-      <select className={switcherStyles.switcher}>
-        {/* Render the color options here */}
+      <select
+        className={switcherStyles.switcher}
+        name="Colors"
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      >
+        <option value="red">Color Red</option>
+        <option value="blue">Color Blue</option>
+        <option value="green">Color Green</option>
       </select>
 
       <div

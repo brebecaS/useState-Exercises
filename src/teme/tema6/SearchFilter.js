@@ -12,13 +12,11 @@ const items = [
 function SearchFilter() {
   const searchString = "razboi";
 
-  const listElements = items
-    .filter((element) => element.includes(searchString))
-    .map((item) => (
-      <div key={item}>
-        <li>{item}</li>
-      </div>
-    ));
+  const listElements = items.map((item) => (
+    <div key={item}>
+      <li>{item}</li>
+    </div>
+  ));
 
   return (
     <div>

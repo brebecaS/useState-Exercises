@@ -6,13 +6,7 @@ function ColorSwitcher() {
 
   return (
     <div className={switcherStyles.container}>
-      <select
-        className={switcherStyles.switcher}
-        name="Colors"
-        onChange={(e) => {
-          console.log(e.target.value);
-        }}
-      >
+      <select className={switcherStyles.switcher} name="Colors">
         <option value="red">Color Red</option>
         <option value="blue">Color Blue</option>
         <option value="green">Color Green</option>

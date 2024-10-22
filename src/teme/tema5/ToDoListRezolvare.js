@@ -2,38 +2,57 @@ import React, { useState } from "react";
 import "../../App.css";
 
 function TodoList() {
-  const [toDos, setToDos] = useState([]);
-  const [newToDo, setNewToDo] = useState("");
+  const [list, setList] = useState([]);
+  const [todo, setTodo] = useState(``);
+  const [timeOfTodo, setTimeOfTodo] = useState(``);
 
-  const liList = toDos.map((item, index) => {
-    return (
-      <div key={index}>
-        <li>{item}</li>
-        <button
-          onClick={() => {
-            setToDos((prevToDos) => {
-              const newList = prevToDos.filter((element) => element !== item);
-              return newList;
-            });
-          }}
-        >
-          Remove
-        </button>
-      </div>
+  function updateList() {
+    const objectWithTheSameTime = list.find(
+      (element) => element.timeOfTodo === timeOfTodo
     );
-  });
+
+    if (objectWithTheSameTime === undefined)
+      setList((list) => {
+        const newList = [...list, { todo, timeOfTodo }];
+        return newList;
+      });
+    else {
+      alert("You can't add two todos at the same time");
+    }
+  }
+
+  function readInput(e) {
+    setTodo(e.target.value);
+  }
 
   return (
     <div className="exercise-container">
-      <div>
-        <input type="text" onChange={(e) => setNewToDo(e.target.value)} />
-        <button
-          onClick={() => setToDos((prevToDos) => [...prevToDos, newToDo])}
-        >
-          Add Todo
-        </button>
-      </div>
-      <ul>{liList}</ul>
+      <input type="text" onChange={readInput} />
+      <input type="text" onChange={(e) => setTimeOfTodo(e.target.value)} />
+      <button onClick={updateList}>Add Todo</button>
+      <ul>
+        {list.map((element) => {
+          return (
+            <li key={`${element.timeOfTodo}${element.todo}`}>
+              <div>
+                La ora {element.timeOfTodo}:{element.todo}{" "}
+              </div>
+              <button
+                onClick={() => {
+                  const newList = list.filter(
+                    (item) =>
+                      item.todo !== element.todo ||
+                      item.timeOfTodo !== element.timeOfTodo
+                  );
+                  setList(newList);
+                }}
+              >
+                Remove
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

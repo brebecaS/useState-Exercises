@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function CharacterCounter() {
-  const [text, setText] = useState(0);
+  const [text, setText] = useState("");
 
   function handleTextareaChange(event) {
     setText(event.target.value);

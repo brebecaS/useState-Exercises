@@ -12,16 +12,24 @@ const items = [
 function SearchFilter() {
   const searchString = "razboi";
 
-  const listElements = items.map((item) => (
-    <div key={item}>
-      <li>{item}</li>
-    </div>
-  ));
-
   return (
     <div>
+      <h3>All texts</h3>
+      {items.map((item) => (
+        <div key={item}>
+          <p>{item}</p>
+        </div>
+      ))}
+
       <input type="text" />
-      <ul>{listElements}</ul>
+
+      <ul>
+        {items.map((item) => (
+          <div key={item}>
+            <li>{item}</li>
+          </div>
+        ))}
+      </ul>
     </div>
   );
 }

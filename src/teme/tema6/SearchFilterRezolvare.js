@@ -14,6 +14,12 @@ function SearchFilter() {
 
   return (
     <div>
+      <h3>All texts</h3>
+      {items.map((item) => (
+        <div key={item}>
+          <p>{item}</p>
+        </div>
+      ))}
       <input
         type="text"
         onChange={(e) => {

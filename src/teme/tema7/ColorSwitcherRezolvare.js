@@ -7,6 +7,7 @@ function ColorSwitcher() {
   function handleColorChange(event) {
     setBgColor(event.target.value);
   }
+
   return (
     <div>
       <select
@@ -21,7 +22,12 @@ function ColorSwitcher() {
         <option value="yellow">Yellow</option>
       </select>
       <div
-        style={{ backgroundColor: bgColor, width: "100px", height: "100px" }}
+        style={{
+          maxWidth: 100,
+          backgroundColor: bgColor,
+          width: "100px",
+          height: "100px",
+        }}
       ></div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 const items = [
   "In ce an a inceput primul razboi modial ?",
@@ -10,7 +10,7 @@ const items = [
 ];
 
 function SearchFilter() {
-  const searchString = "razboi";
+  const [searchString, setSearchString] = useState("");
 
   return (
     <div>
@@ -21,14 +21,17 @@ function SearchFilter() {
         </div>
       ))}
 
-      <input type="text" />
+      <input type="text" onChange={(e) => setSearchString(e.target.value)} />
 
+      <h3>Filtered texts</h3>
       <ul>
-        {items.map((item) => (
-          <div key={item}>
-            <li>{item}</li>
-          </div>
-        ))}
+        {items
+          .filter((item) => searchString !== "" && item.includes(searchString))
+          .map((item) => (
+            <div key={item}>
+              <li>{item}</li>
+            </div>
+          ))}
       </ul>
     </div>
   );
